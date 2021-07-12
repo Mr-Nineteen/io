@@ -151,13 +151,17 @@ load("@lint_dependencies//:requirements.bzl", "pip_install")
 
 pip_install()
 
-http_archive(
+# http_archive(
+#     name = "org_tensorflow",
+#     sha256 = "741750813a541b4bf71bdfc284842f916e639bd19195be980ae88495a8f0b2f1",
+#     strip_prefix = "tensorflow-2.6.0-rc0",
+#     urls = [
+#         "https://github.com/tensorflow/tensorflow/archive/refs/tags/v2.6.0-rc0.tar.gz",
+#     ],
+# )
+local_repository(
     name = "org_tensorflow",
-    sha256 = "741750813a541b4bf71bdfc284842f916e639bd19195be980ae88495a8f0b2f1",
-    strip_prefix = "tensorflow-2.6.0-rc0",
-    urls = [
-        "https://github.com/tensorflow/tensorflow/archive/refs/tags/v2.6.0-rc0.tar.gz",
-    ],
+    path = "/install/tensorflow",
 )
 
 load("@org_tensorflow//tensorflow:workspace3.bzl", "tf_workspace3")
