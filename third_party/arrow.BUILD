@@ -7,7 +7,7 @@ licenses(["notice"])  # Apache 2.0
 
 exports_files(["LICENSE.txt"])
 
-load("@flatbuffers//:build_defs.bzl", "flatbuffer_cc_library")
+load("@com_github_google_flatbuffers//:build_defs.bzl", "flatbuffer_cc_library")
 
 flatbuffer_cc_library(
     name = "arrow_format",
@@ -100,9 +100,7 @@ cc_library(
         "ARROW_WITH_ZSTD",
         "ARROW_WITH_BZ2",
         "ARROW_STATIC",
-        "ARROW_EXPORT=",
         "PARQUET_STATIC",
-        "PARQUET_EXPORT=",
         "WIN32_LEAN_AND_MEAN",
     ],
     includes = [
@@ -122,7 +120,6 @@ cc_library(
         "@rapidjson",
         "@snappy",
         "@thrift",
-        "@xsimd",
         "@zlib",
         "@zstd",
     ],
